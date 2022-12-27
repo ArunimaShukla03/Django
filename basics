@@ -4,7 +4,7 @@ We are creating a software that is going to run on a web server such that client
 
 This is possible due to a protocol called HTTP (HyperText Transfer Protocol) which is responsible for how messages are going to be sent back and forth over the internet.
 
-In this, we have a server which contains the web applicatoin an the computer which is known as the client. The client is going to make a request to the server and the server will generate some kind of response based on the request.
+In this, we have a server which contains the web application and the computer which is known as the client. The client is going to make a request to the server and the server will generate some kind of response based on the request.
 
 The request might be like 
 

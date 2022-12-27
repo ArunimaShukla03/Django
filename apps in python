@@ -1,0 +1,13 @@
+In the newly created "hello" app, we have "views.py" which lets us describe what is it that the user sees when they visit a particular route or where we can decide what gets rendered to the user.
+
+Now we have this newly created "hello" app which we would like to install in our DJANGO project and in order to install it, we would go to settings for this particular django project.
+
+Going to the settings, we have "installed apps" variable which is where Django configures what apps are installed on this project and we may add our newly created app "hello" on this django project.
+
+Now we want this app to display or do something when we visit a particular route.
+
+In order to do this, go to the "views.py" section. Think of each view as something that the user might want to see. And in order to create a view in Django, we're going to define a function.
+
+Here, in "views.py" we have created a function called "index" that by convention takes a request argument. And this is going to be an argument that is going to represent the HTTP request that the user made in order to acces our web server.
+
+So if we want information about that request, we may look inside this requested object
