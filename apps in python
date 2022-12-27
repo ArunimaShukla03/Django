@@ -32,4 +32,24 @@ The final step is go to the "urls.py" in DJANGO directory which is the "urls.py"
 
 To add our own route or for a particular path to lead to not the admin app but the hello app that we have just now created, we include all the urls in hello application in this "urls.py" file (basically linking these two URL configuration files together).
 
-To do this, use the command "include("hello.urls")"
+To do this, use the command "include("hello.urls")".
+
+Now, on typing the "http://127.0.0.1:8000/hello/" as URL we get Hello World!
+
+(as when we access the hello app, the path taken triggers the function "index" from views and thus returns the HttpResponse "Hello World!")
+
+Now we may edit the view function as we please to change the HttpResponse (here "Hello World").
+
+We may add as many views we want. The second view here "arunima" needs to be associated with a particular URL. Thus, again we go to the "urls.py" in the hello directory where we already have a default route represented by the empty string. Now, we may add to this.
+
+Thus when we type in "http://127.0.0.1:8000/hello/arunima" we get "Hello Arunima!" as the HttpResponse.
+
+But this might get tedious after some time, so we just create URL patterns that has placeholder effects by taking an additional parameter such as "name" which returns the HttpResponse by plugging in the name.
+
+Now in the "urls.py" file, in the path we simply write <str:name> followed by the function used and its name. It means that it can be any string now.
+
+Now if we type in any url which is followed by a string, we get the HttpResponse "Hello <String>!" as any string that is typed in the URL will act as the parameter to the function created.
+
+We may also capitalize it by writing name.capitalize in the HttpResponse in the views section.
+
+These Http reponses can be any HTML content but it gets laborious in long HTML codes thus we use a way in which we separate the HTML part of the code from the django code. 
