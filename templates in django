@@ -64,3 +64,5 @@ After writing the CSS code then we go to index.html and add {% load static %} at
 So we are not writing the direct url which we could do but we are writing that there is a static page in the folder newyear/styles.css which Django will figure out on its own.
 
 We can use "for loop" in HTML by using {% for task in tasks %} and then looping through the elements of "task" variable in view and printing it in the form of an unordered list.
+
+We write {% extends "tasks/layout.html" %} on the top of the page to indicate that this is the extension of "layout.html".

@@ -10,4 +10,17 @@ Instead of just being static value now it is dynamic.
 
 Now we actively want to add in a new task by essentially creating a form.
 
-Thus now in the "tasks" app "views.py" we add in a new function called "add"
+Thus now in the "tasks" app "views.py" we add in a new function called "add". We create a new HTML file which allows the user to put in new "task" and add the route in the "urls.py" section in the "tasks" app.
+
+Now django provides us "template inheritance" that is better than copying and pasting similar HTML files.
+
+For this we have a file called "layout" that the other files are going to inherit from (here index.html and add.html) where the structure of the page is the same for both of the pages and all we need to write is what differs in both of the pages.
+
+Here, in index.html and add.html only has difference in their body.
+
+For this, we create a new file called layout.html in templates/tasks which contains the layout which is same for both of the pages.
+
+In this, we add in {% block body %}
+{% endblock %} where the basic difference is.
+
+For add.html and index.html we remove everything except where the different content is.
