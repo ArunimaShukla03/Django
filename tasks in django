@@ -7,3 +7,7 @@ First we create a global variable called "tasks" containing random tasks.
 Now inside the function we have the key "tasks" that contains the variable "task" so we can use it when django is rendering it.
 
 Instead of just being static value now it is dynamic.
+
+Now we actively want to add in a new task by essentially creating a form.
+
+Thus now in the "tasks" app "views.py" we add in a new function called "add"
