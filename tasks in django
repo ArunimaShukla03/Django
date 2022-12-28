@@ -1,0 +1,9 @@
+First we create a new app called "tasks" and follow all the steps initially followed after we create an app.
+
+Now we want to render a page that displays a list of all of the tasks.
+
+First we create a global variable called "tasks" containing random tasks.
+
+Now inside the function we have the key "tasks" that contains the variable "task" so we can use it when django is rendering it.
+
+Instead of just being static value now it is dynamic.
