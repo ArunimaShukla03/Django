@@ -1,0 +1,9 @@
+In order to create a separation in our project we use "render" in "views.py" with request and name of the template. And now all we need to do is to create the template with the same name.
+
+Now we have the folder called template with a folder "hello" as the name of the template is "hello/index.html". We could have just had "index.html" as the template name but often we want to prefix our templates with the directory name (so that if we have multiple different html files in different apps then they don't conflict with each other - this is called "namespacing").
+
+We may also use render in the greet function and add an optional third argument called context and it is all of the information that we provide to the template. For example: all the variables that I want the template to have access to.
+
+This context is in the form of key value pairs.
+
+Now in our HTML file, we use {{ }} to merge django with HTML as anything inside it for example here "name" can be plugged while rendering.
