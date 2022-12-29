@@ -24,3 +24,13 @@ In this, we add in {% block body %}
 {% endblock %} where the basic difference is.
 
 For add.html and index.html we remove everything except where the different content is.
+
+Also, while defining the link it is not necessary to write a link that is rigid instead we may write something like {% url 'add' %} that makes it more flexible (link to url called "add"). This shows the importance of giving names during writing paths in "urls.py".
+
+But this could also cause namespace collision as "index" is a common name in different apps so the href link might not work.
+
+An easy way to fix this is inside "urls.py" for my "tasks" app, let me give each of these urls an app name (here "tasks"). Then while linking, we write "{% url 'tasks:index' %}", this makes sure that the index used is the one under "tasks" app. And likewise change the url in "index.html" too.
+
+Now in order to add action to a form, i.e., for it take that form and submit it somewhere.
+
+For this we add action to the form and submit it back to the url for tasks:add. Whevever you are submitting data that has the potential to change the state of an application (here changing the state of the lists of tasks), then we use a request method called "post". This allows us to send data to my add route.
