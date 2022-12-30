@@ -31,6 +31,10 @@ But this could also cause namespace collision as "index" is a common name in dif
 
 An easy way to fix this is inside "urls.py" for my "tasks" app, let me give each of these urls an app name (here "tasks"). Then while linking, we write "{% url 'tasks:index' %}", this makes sure that the index used is the one under "tasks" app. And likewise change the url in "index.html" too.
 
-Now in order to add action to a form, i.e., for it take that form and submit it somewhere.
+Now in order to add action to a form, i.e., for it take that form information and submit it somewhere.
 
-For this we add action to the form and submit it back to the url for tasks:add. Whevever you are submitting data that has the potential to change the state of an application (here changing the state of the lists of tasks), then we use a request method called "post". This allows us to send data to my add route.
+We submit this URL back to the add template. And then we use a method called "post".
+
+In opposition of the "get" request method which is used when we want to get a particular page, if we want to change the state inside the application then we use a different request method called "post" (here we are changing the state of the list of tasks that is stored inside the application).
+
+This will allow the data to send to the "add" route.
