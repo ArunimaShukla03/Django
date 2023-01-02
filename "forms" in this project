@@ -1,1 +1,15 @@
+Now, when we fill in the information in "http://127.0.0.1:8000/tasks/add" then it generally gives us an error page, FORBIDDEN (403). Here the 403 is the response code that came back, that is, we don't have permission to do this due to "CSRF verification failed".
 
+CSRF stands for Cross-Site Request Forgery. Someone could forge a request to a particular website using some form on their own separate website. That is someone on a different website might trick the user into submitting a form that submits its data to our add task function that adds the added tasks into their task list instead of ours.
+
+In order to avoid these forgeries, we may add a hidden CSRF token to our form which is a unique token that generates with every session, i.e., for every different user they see a different CSRF token which is submitted with the form every time the form is submitted. And our application checks if the token is valid or not.
+
+If it is valid, it'll allow the form submissions to go through. Any other forger wouldn't be able to fake a request to our website as they don't know specifically what the generated token is.
+
+Django has CSRF validation turned on by default which is done via "Django Middleware". It is the ability of Django to intervene in the request response processing of a Django request.
+
+In the "settings.py" of this project we have default features hooked into request-response processing (CSRF view middleware is also present amongst it),
+
+We may directly add the csrf token in "add.html" by "{% csrf_token %}
+
+We may look into it's value by going to the page source. Django checks if the token is valid and then submits. And if someone else goes to this website then they would see a different token.
