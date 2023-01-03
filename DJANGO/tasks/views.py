@@ -1,16 +1,16 @@
 from django import forms
 from django.shortcuts import render
 
-task = ["foo", "baz", "lol"]
+tasks = ["foo", "baz", "lol"]
 # Create your views here.
 
 class NewTaskForm(forms.Form):
-  tasksss = forms.CharField(label="New Task:")
-  priority = forms.IntegerField(label="Priority", min_value=1)
+  task = forms.CharField(label="New Task:")
+  priority = forms.IntegerField(label="Priority", min_value=1, max_value=5)
 
 def index(request):
   return render(request, "tasks/index.html", {
-    "tasks": task
+    "tasks": tasks
   })
   
 def add(request):
@@ -18,14 +18,14 @@ def add(request):
     form = NewTaskForm(request.POST)
 
     if form.is_valid():
-      tasksss = form.cleaned_data["tasksss"]
-      task.append(tasksss)
+      task = form.cleaned_data["task"]
+      tasks.append(task)
 
     else:
       return render(request, "tasks/add.html", {
-        "forms":form
+        "form":form
       })
 
   return render(request, "tasks/add.html", {
-    "forms":NewTaskForm
+    "form":NewTaskForm()
   })
