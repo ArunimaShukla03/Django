@@ -13,3 +13,21 @@ In the "settings.py" of this project we have default features hooked into reques
 We may directly add the csrf token in "add.html" by "{% csrf_token %}
 
 We may look into it's value by going to the page source. Django checks if the token is valid and then submits. And if someone else goes to this website then they would see a different token.
+
+We created a form here by scratch but they are so often used that django has added a number of ways to make it easier to create forms.
+
+In order to do this, we are going to go to "views.py" and import "forms" from django and then we are going to create a class to represent this form called "NewTaskForm" which will inherit from forms.Form
+
+Inside this form we are going to define all the fields we would like this form to have. So we have the name of the task that will contain a character field with a label called "New Task".
+
+While rendering "add.html", give this template access to a variable called "form" that represents "NewTaskForm" and plug it in "add.html" which will do exactly the same thing for us.
+
+We may also add additional labels to this form (here "priority" where it only takes integer values while also adding constraints in it such as min or max value).
+
+If only one of the fields is filled then django asks the user to fill out the other field. This is called "client-side validation". The server is not getting any of those data but we are using the defined contraints to check if the filled value matches that data.
+
+When we want to validate form, we not only want the client-side validation but also server-side validation, i.e., we also want to check from the server if the inputs are valid.
+
+HOW DO WE DO THIS?
+
+When we are simply trying to GET the add page by typing in the URL, then we just want to render the form. But if we want to POST data by using the POST request method that means we are submitting the form, and now we want to add in a new task in our list of tasks.
