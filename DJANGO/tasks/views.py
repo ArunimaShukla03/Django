@@ -1,12 +1,14 @@
 from django import forms
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.shortcuts import render
 
-tasks = ["foo", "baz", "lol"]
+tasks = []
 # Create your views here.
 
 class NewTaskForm(forms.Form):
   task = forms.CharField(label="New Task:")
-  priority = forms.IntegerField(label="Priority", min_value=1, max_value=3)
+  priority = forms.IntegerField(label="Priority", min_value=1, max_value=5)
 
 def index(request):
   return render(request, "tasks/index.html", {
@@ -20,6 +22,7 @@ def add(request):
     if form.is_valid():
       task = form.cleaned_data["task"]
       tasks.append(task)
+      return HttpResponseRedirect(reverse("tasks:index"))
 
     else:
       return render(request, "tasks/add.html", {
