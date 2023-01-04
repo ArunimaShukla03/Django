@@ -1,0 +1,7 @@
+Django gets more interesting when we delve into the world of data and trying to have web applications that store data inside of a database.
+
+SQL is a database language that we use to interact with databases and Django is going to allow us to have an abstraction layer on top of SQL.
+
+To interact by not writing direct SQL queries but by interacting with Python classes and objects known as "models".
+
+"Migrations" are going to be a technique that are going to allow us to update our database in response to changes that we make to our underlying models.
