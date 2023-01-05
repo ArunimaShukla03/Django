@@ -6,4 +6,6 @@ To interact by not writing direct SQL queries but by interacting with Python cla
 
 "Migrations" are going to be a technique that are going to allow us to update our database in response to changes that we make to our underlying models.
 
-"Data" can be stored in various ways inside a computer system but generally in databases particularly (relational databases), we are going to store data inside a table where each table consists of rows and columns. Here, we are going to construct a database and a web application that an airline may use.
+"Data" can be stored in various ways inside a computer system but generally in databases (particularly relational databases), we are going to store data inside a table where each table consists of rows and columns (here, we are going to construct a database and a web application that an airline may use)
+
+SQL is a database language that is designed to interact with relational database management systems. 
