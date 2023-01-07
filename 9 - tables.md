@@ -18,3 +18,43 @@ CREATE TABLE flights (
 => PRIMARY KEY is the primary way via which we can uniquely identify (here, flight). NOT NULL is a way to convey that the field should not be left empty. We don't ever want a flight that doesn't have an origin or destination, etc.
 
 AUTOINCREMENT is a cue into SQL to automatically update the id every time we add a new row into the table.
+
+We can add number of constraints in a particular column for example UNIQUE (makes sure that every value is going to be unique), CHECK (makes sure that a value obeys a certain condition), NOT NULL, DEFAULT.
+
+HOW ARE WE GOING TO ADD DATA INTO THE TABLES?
+
+We are going to do so via an INSERT command.
+
+The command is generally going to look like:
+
+INSERT INTO flights
+    (origin, destination, duration)
+    VALUES ("New York", "London", 415)
+
+=> here we are adding a new row into the "flights" table. Here in paranthesis we are going to provide all the column names for which we are going to provide values. We should mind the order while giving the values for each column.
+
+Although once we have added data into the table, we would also like a way to get data out of that table. For this we are going to write a particular type of query called the SELECT query.
+
+WHAT DOES A QUERY LOOKS LIKE?
+
+SELECT * FROM flights;
+
+=> here this means that select all the possible columns in the "flights" table. The whole table is going to come back to me when we write this query.
+
+WHAT HAPPENS IF WE DON'T NEED ALL THE DATA THAT IS WE ONLY WANT SELECTIVE DATA FROM THE TABLE?
+
+SELECT origin, destination FROM flights;
+
+=> here we are only selecting the "origin" and "destination" column from the table.
+
+OR
+
+SELECT * FROM flights WHERE id = 3;
+
+=> only going to return the rows where id is 3.
+
+OR
+
+SELECT * FROM flights where origin = "New York";
+
+=> only going to return the rows where origin is New York.
