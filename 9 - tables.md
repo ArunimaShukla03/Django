@@ -55,6 +55,6 @@ SELECT * FROM flights WHERE id = 3;
 
 OR
 
-SELECT * FROM flights where origin = "New York";
+SELECT * FROM flights WHERE origin = "New York";
 
 => only going to return the rows where origin is New York.
