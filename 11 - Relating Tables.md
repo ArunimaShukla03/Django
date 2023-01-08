@@ -23,3 +23,21 @@ Therefore, we have different type of relationships between rows, one such type o
 For doing this we need a different type of structure. One way to do this is just simply storing "people" in a table instead of "passengers" where every person has an id, a first name and a last name. But we are no longer storing flight information inside this table. 
 
 Thus we create now another table that only has the "person_id" and a "flight_id". Where a person with a person_id is associated with a flight and we can repeat the same person to now different number of flights. But now our tables are not as clear as it is not immediately obvious to me, when I look at this table, what data I am looking at.
+
+But SQL makes it easy for us to take all this data and join them back together.
+
+We can do this by a JOIN query that takes multiple tables and joins them back together. Here we take the case for just two table setup where we have "flights" and "passengers" where every passenger is associated with one flight. The syntax for JOIN query might look something like:
+
+SELECT first, origin, destination FROM flights JOIN passengers ON passengers.flights_id = flights_id;
+
+[here we are selecting the first names, origin and the destination from the "flights" table while joining it with the "passengers" table where the flights_id in the "passengers" table is associated with the flights_id in the "flights" table. By the help of this query, we were able to take data from the separate table and able to join it.]
+
+There are number of different join queries we can run. What we saw here was a default JOIN, also called the INNER JOIN where the INNER JOIN will take the two tables, it will cross compare based on the specified condition and only return back the results where there is a match on both sides.
+
+We can also have some optimizations to make the queries more efficient, one thing that we can do is create an index on a particular table.
+
+COMMAND TO CREATE AN INDEX IS AS FOLLOWS:
+
+CREATE INDEX name_index ON passengers (last);
+
+[we are creating an index called the "name_index" on the passengers table and particularly on the "last" name column. This is done to more efficiently search for the passenger.]
